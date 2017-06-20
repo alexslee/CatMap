@@ -56,7 +56,11 @@
         
         NSString *location = [[[locationDict objectForKey:@"region"] objectForKey:@"_content"] stringByAppendingString:[NSString stringWithFormat:@", %@",country]];
         
-        FlickrImageDetails *imageInfo = [[FlickrImageDetails alloc] initWithURL:[oneURL[0] objectForKey:@"_content"] andViews:views andOwner:username andLocation:location];
+        CLLocationDegrees lat = [[locationDict objectForKey:@"latitude"] floatValue];
+        CLLocationDegrees lon = [[locationDict objectForKey:@"longitude"] floatValue];
+        CLLocationCoordinate2D coords = CLLocationCoordinate2DMake(lat, lon);
+        
+        FlickrImageDetails *imageInfo = [[FlickrImageDetails alloc] initWithURL:[oneURL[0] objectForKey:@"_content"] andViews:views andOwner:username andLocation:location andCoordinates:coords];
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             completion(imageInfo);

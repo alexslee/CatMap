@@ -10,7 +10,7 @@
 
 @implementation FlickrImageDetails
 
-- (instancetype)initWithURL:(NSString *)url andViews:(NSString *)views andOwner:(NSString *)owner andLocation:(NSString *)location {
+- (instancetype)initWithURL:(NSString *)url andViews:(NSString *)views andOwner:(NSString *)owner andLocation:(NSString *)location andCoordinates:(CLLocationCoordinate2D)coordinates {
     self = [super init];
     
     if (self) {
@@ -18,6 +18,7 @@
         _views = views;
         _owner = owner;
         _location = location;
+        _coordinates = coordinates;
     }
     
     return self;

@@ -27,9 +27,11 @@
 
 @property (strong, nonatomic) NSString *imageName;
 
+@property (nonatomic, readonly, copy) NSString *title;
+
 @property (strong, nonatomic) UIImage *image;
 
-@property(nonatomic) CLLocationCoordinate2D coordinate;
+@property(nonatomic) CLLocationCoordinate2D coordinates;
 
 - (instancetype)initWithFarm:(NSString *)farm andID:(NSString *)imageID andSecret:(NSString *)secret andServer:(NSString *)server andName:(NSString *)name;
 

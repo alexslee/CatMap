@@ -69,13 +69,13 @@
         [self.flickrManager downloadImageWithCompletionHandler:^(UIImage *image) {
             photoData.image = image;
             cell.imageView.image = image;
-            cell.imageName.text = photoData.imageName;
-            
+            cell.imageName.text = photoData.title;
+            photoData.coordinates = photoData.imageDetails.coordinates;
         } fromURL:photoData.constructedURL];
     }
     else {
         cell.imageView.image = photoData.image;
-        cell.imageName.text = photoData.imageName;
+        cell.imageName.text = photoData.title;
     }
     return cell;
 }

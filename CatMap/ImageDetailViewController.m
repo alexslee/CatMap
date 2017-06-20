@@ -53,7 +53,7 @@
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     self.imageView.layer.masksToBounds = YES;
     self.testLabel.text = self.image.imageDetails.views;
-    self.titleLabel.text = self.image.imageName;
+    self.titleLabel.text = self.image.title;
     self.ownerLabel.text = self.image.imageDetails.owner;
     self.locationLabel.text = self.image.imageDetails.location;
 }
