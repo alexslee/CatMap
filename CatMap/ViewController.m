@@ -33,9 +33,9 @@
     self.flickrManager = [[FlickrManager alloc] init];
     [self.flickrManager collectImagesWithCompletionHandler:^(NSMutableArray *constructedPhotos) {
         self.photos = constructedPhotos;
-        for (FlickrImage *photo in self.photos) {
-            NSLog(@"this photo has a URL of: %@",photo.constructedURL);
-        }
+//        for (FlickrImage *photo in self.photos) {
+//            NSLog(@"this photo has a URL of: %@",photo.constructedURL);
+//        }
         [self.collectionView reloadData];
     }];
     
@@ -103,8 +103,25 @@
     }
 }
 
+//- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(CustomCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+//
+//    FlickrImage *photoData = [self.photos objectAtIndex:indexPath.row];
+//    if (photoData.image == nil) {
+//        [self.flickrManager downloadImageWithCompletionHandler:^(UIImage *image) {
+//            photoData.image = image;
+//            cell.imageView.image = image;
+//            cell.imageName.text = photoData.imageName;
+//            
+//        } fromURL:photoData.constructedURL];
+//    }
+//    else {
+//        cell.imageView.image = photoData.image;
+//        cell.imageName.text = photoData.imageName;
+//    }
+//}
+
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self.flickrManager.downloadTask suspend];
+    //[self.flickrManager.downloadTask suspend];
 }
 
 @end

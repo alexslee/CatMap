@@ -8,6 +8,14 @@
 
 #import "FlickrManager.h"
 
+@interface FlickrManager ()
+
+@property (strong, nonatomic) NSURL *url;
+
+@property (strong, nonatomic) NSString *tagVal;
+
+@end
+
 @implementation FlickrManager
 
 - (void)downloadDetailsForImage:(FlickrImage *)image withCompletion:(void (^)(FlickrImageDetails*))completion {
@@ -80,8 +88,8 @@
 }
 
 - (void)collectImagesWithCompletionHandler:(void (^)(NSMutableArray *))completion {
-    NSURL *url = [NSURL URLWithString:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&api_key=8ec3cec8e3a44f229e001aa4105329fb&tags=cat"];
-    
+    //NSURL *url = [NSURL URLWithString:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&api_key=8ec3cec8e3a44f229e001aa4105329fb&tags=cat"];
+    NSURL *url = [self configureURL];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
     
@@ -119,6 +127,32 @@
     }];
     
     [task resume];
+}
+
+- (NSURL *)configureURL {
+    //theoretically will allow for searching, since that's part of the assignment later
+    if (self.tagVal == nil) {
+        self.tagVal = @"cat";
+    }
+    //TEST THIS QUERY LATER, maybe will make for faster loading in the main collection view?? @"extras" : @"url_sq"
+    //make the queries dictionary, accounting for the 'only geotagged photos' user story
+    NSDictionary *queryBase = @{@"method" : @"flickr.photos.search", @"api_key" : @"8ec3cec8e3a44f229e001aa4105329fb", @"has_geo" : @"1", @"tags" : self.tagVal, @"format" : @"json", @"nojsoncallback" : @"1"};
+    
+    NSMutableArray *finalQueries = [[NSMutableArray alloc] init];
+    
+    for (NSString *key in queryBase) {
+        [finalQueries addObject:[NSURLQueryItem queryItemWithName:key value:queryBase[key]]];
+    }
+    
+    NSURLComponents *components = [[NSURLComponents alloc] init];
+    
+    components.scheme = @"https";
+    components.host = @"api.flickr.com";
+    components.path = @"/services/rest/";
+    components.queryItems = finalQueries;
+
+    self.url = components.URL;
+    return components.URL;
 }
 
 @end
