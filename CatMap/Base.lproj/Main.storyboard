@@ -118,87 +118,107 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KJf-jG-cCG">
-                                <rect key="frame" x="37.5" y="93" width="300" height="300"/>
+                                <rect key="frame" x="38" y="93" width="300" height="300"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Detail label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="7KW-d4-dqn">
-                                <rect key="frame" x="95.5" y="420" width="115.5" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Views:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1v-C0-qAq">
-                                <rect key="frame" x="37.5" y="419" width="53" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="bYN-hH-iHw">
                                 <rect key="frame" x="37" y="72" width="300" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taken by:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3E4-2b-VTs">
-                                <rect key="frame" x="37.5" y="457" width="77" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="75g-HD-eCa">
-                                <rect key="frame" x="119.5" y="458" width="92" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQ1-Xu-JkU">
-                                <rect key="frame" x="37.5" y="495" width="74" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="PMV-wd-BLQ">
-                                <rect key="frame" x="116.5" y="496" width="209.5" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2V-z9-4yg">
-                                <rect key="frame" x="143.5" y="526" width="89" height="30"/>
-                                <state key="normal" title="See on Flickr"/>
-                                <connections>
-                                    <action selector="seeOnFlickrTapped:" destination="Paq-pq-cf5" eventType="touchUpInside" id="w3P-70-ngW"/>
-                                </connections>
-                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0n-IS-vOS">
+                                <rect key="frame" x="37" y="408" width="301" height="239"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taken by:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3E4-2b-VTs">
+                                        <rect key="frame" x="8" y="30" width="77" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQ1-Xu-JkU">
+                                        <rect key="frame" x="8" y="59" width="74" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="PMV-wd-BLQ">
+                                        <rect key="frame" x="87" y="60" width="179.5" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="75g-HD-eCa">
+                                        <rect key="frame" x="90" y="30" width="92" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Detail label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="7KW-d4-dqn">
+                                        <rect key="frame" x="66" y="2" width="115.5" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Views:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1v-C0-qAq">
+                                        <rect key="frame" x="8" y="1" width="53" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2V-z9-4yg">
+                                        <rect key="frame" x="105.5" y="86" width="89" height="30"/>
+                                        <state key="normal" title="See on Flickr"/>
+                                        <connections>
+                                            <action selector="seeOnFlickrTapped:" destination="Paq-pq-cf5" eventType="touchUpInside" id="w3P-70-ngW"/>
+                                        </connections>
+                                    </button>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9Sl-rK-2bq">
+                                        <rect key="frame" x="7" y="121" width="285" height="239"/>
+                                    </mapView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Q1v-C0-qAq" firstAttribute="leading" secondItem="A0n-IS-vOS" secondAttribute="leading" constant="8" id="2yr-N0-LYP"/>
+                                    <constraint firstItem="PMV-wd-BLQ" firstAttribute="leading" secondItem="DQ1-Xu-JkU" secondAttribute="trailing" constant="5" id="6AV-Q6-9gN"/>
+                                    <constraint firstItem="I2V-z9-4yg" firstAttribute="centerX" secondItem="A0n-IS-vOS" secondAttribute="centerX" id="9JK-kv-FHH"/>
+                                    <constraint firstItem="7KW-d4-dqn" firstAttribute="centerY" secondItem="Q1v-C0-qAq" secondAttribute="centerY" id="DdJ-5Z-Iqy"/>
+                                    <constraint firstItem="75g-HD-eCa" firstAttribute="leading" secondItem="3E4-2b-VTs" secondAttribute="trailing" constant="5" id="F2J-Mx-Bu3"/>
+                                    <constraint firstItem="9Sl-rK-2bq" firstAttribute="width" secondItem="A0n-IS-vOS" secondAttribute="width" multiplier="0.95" id="Fal-rv-kkd"/>
+                                    <constraint firstItem="DQ1-Xu-JkU" firstAttribute="top" secondItem="3E4-2b-VTs" secondAttribute="bottom" constant="8" id="Hsg-nz-iJe"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Sl-rK-2bq" secondAttribute="bottom" constant="-59" id="IF3-2l-XDF"/>
+                                    <constraint firstItem="75g-HD-eCa" firstAttribute="centerY" secondItem="3E4-2b-VTs" secondAttribute="centerY" id="JRD-rJ-a48"/>
+                                    <constraint firstItem="Q1v-C0-qAq" firstAttribute="top" secondItem="A0n-IS-vOS" secondAttribute="top" multiplier="5" constant="1" id="JzI-cm-KpK"/>
+                                    <constraint firstItem="9Sl-rK-2bq" firstAttribute="centerX" secondItem="A0n-IS-vOS" secondAttribute="centerX" id="NLE-Wj-c1B"/>
+                                    <constraint firstItem="9Sl-rK-2bq" firstAttribute="height" secondItem="A0n-IS-vOS" secondAttribute="height" id="Rcg-bT-aVK"/>
+                                    <constraint firstItem="I2V-z9-4yg" firstAttribute="top" secondItem="PMV-wd-BLQ" secondAttribute="bottom" constant="6.5" id="Spi-ld-grD"/>
+                                    <constraint firstItem="7KW-d4-dqn" firstAttribute="leading" secondItem="Q1v-C0-qAq" secondAttribute="trailing" constant="5" id="ZZA-mB-ZRz"/>
+                                    <constraint firstItem="9Sl-rK-2bq" firstAttribute="top" secondItem="I2V-z9-4yg" secondAttribute="bottom" constant="5" id="Zlt-KL-LX1"/>
+                                    <constraint firstItem="PMV-wd-BLQ" firstAttribute="centerY" secondItem="DQ1-Xu-JkU" secondAttribute="centerY" id="ir5-f2-XQw"/>
+                                    <constraint firstItem="3E4-2b-VTs" firstAttribute="top" secondItem="Q1v-C0-qAq" secondAttribute="bottom" constant="8" id="kv1-Yf-zbb"/>
+                                    <constraint firstItem="3E4-2b-VTs" firstAttribute="leading" secondItem="Q1v-C0-qAq" secondAttribute="leading" id="vX4-Qx-oab"/>
+                                    <constraint firstItem="PMV-wd-BLQ" firstAttribute="width" secondItem="A0n-IS-vOS" secondAttribute="width" multiplier="0.6" id="xFI-tO-J8c"/>
+                                    <constraint firstItem="DQ1-Xu-JkU" firstAttribute="leading" secondItem="3E4-2b-VTs" secondAttribute="leading" id="yhx-0z-PeO"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="PMV-wd-BLQ" firstAttribute="centerY" secondItem="DQ1-Xu-JkU" secondAttribute="centerY" id="1C7-wo-l4p"/>
                             <constraint firstItem="bYN-hH-iHw" firstAttribute="width" secondItem="KJf-jG-cCG" secondAttribute="width" id="1fA-ul-mG0"/>
-                            <constraint firstItem="DQ1-Xu-JkU" firstAttribute="leading" secondItem="KJf-jG-cCG" secondAttribute="leading" id="2gc-6T-JVf"/>
-                            <constraint firstItem="PMV-wd-BLQ" firstAttribute="leading" secondItem="DQ1-Xu-JkU" secondAttribute="trailing" constant="5" id="81Q-Sc-xNz"/>
-                            <constraint firstItem="3E4-2b-VTs" firstAttribute="top" secondItem="Q1v-C0-qAq" secondAttribute="bottom" constant="17" id="CId-X9-hVH"/>
-                            <constraint firstItem="75g-HD-eCa" firstAttribute="leading" secondItem="3E4-2b-VTs" secondAttribute="trailing" constant="5" id="Clb-q7-gdM"/>
-                            <constraint firstItem="Q1v-C0-qAq" firstAttribute="leading" secondItem="KJf-jG-cCG" secondAttribute="leading" id="LG9-cL-i51"/>
-                            <constraint firstItem="DQ1-Xu-JkU" firstAttribute="top" secondItem="3E4-2b-VTs" secondAttribute="bottom" constant="17" id="Sz3-Rz-bzq"/>
-                            <constraint firstItem="7KW-d4-dqn" firstAttribute="leading" secondItem="Q1v-C0-qAq" secondAttribute="trailing" constant="5" id="VHW-QA-9Nf"/>
+                            <constraint firstItem="A0n-IS-vOS" firstAttribute="top" secondItem="KJf-jG-cCG" secondAttribute="bottom" constant="15" id="Buf-wW-zGk"/>
                             <constraint firstItem="bYN-hH-iHw" firstAttribute="leading" secondItem="xmQ-3c-cqE" secondAttribute="leadingMargin" constant="21" id="WyO-xK-hiK"/>
-                            <constraint firstItem="Q1v-C0-qAq" firstAttribute="top" secondItem="KJf-jG-cCG" secondAttribute="bottom" constant="26" id="Ya2-CG-dog"/>
-                            <constraint firstItem="7KW-d4-dqn" firstAttribute="centerY" secondItem="Q1v-C0-qAq" secondAttribute="centerY" id="ZfV-sD-H8T"/>
+                            <constraint firstItem="mQv-iR-6JF" firstAttribute="top" secondItem="A0n-IS-vOS" secondAttribute="bottom" constant="20" id="Zpq-rP-v0Y"/>
                             <constraint firstItem="KJf-jG-cCG" firstAttribute="width" secondItem="xmQ-3c-cqE" secondAttribute="width" multiplier="0.8" id="b1O-5c-g1j"/>
-                            <constraint firstItem="I2V-z9-4yg" firstAttribute="top" secondItem="DQ1-Xu-JkU" secondAttribute="bottom" constant="10" id="dBr-Ae-PUZ"/>
-                            <constraint firstItem="PMV-wd-BLQ" firstAttribute="width" secondItem="KJf-jG-cCG" secondAttribute="width" multiplier="0.7" id="h7c-SY-7pl"/>
+                            <constraint firstItem="A0n-IS-vOS" firstAttribute="width" secondItem="KJf-jG-cCG" secondAttribute="width" id="eBa-s9-Iyy"/>
+                            <constraint firstItem="A0n-IS-vOS" firstAttribute="centerX" secondItem="KJf-jG-cCG" secondAttribute="centerX" id="elg-IO-q8X"/>
                             <constraint firstItem="KJf-jG-cCG" firstAttribute="height" secondItem="xmQ-3c-cqE" secondAttribute="width" multiplier="0.8" id="k37-MP-Kcq"/>
-                            <constraint firstItem="I2V-z9-4yg" firstAttribute="centerX" secondItem="KJf-jG-cCG" secondAttribute="centerX" id="q4y-ME-4nj"/>
                             <constraint firstItem="bYN-hH-iHw" firstAttribute="top" secondItem="SbS-je-w5h" secondAttribute="bottom" constant="8" id="tgt-BH-FWX"/>
-                            <constraint firstItem="75g-HD-eCa" firstAttribute="centerY" secondItem="3E4-2b-VTs" secondAttribute="centerY" id="vQr-61-b8r"/>
                             <constraint firstItem="KJf-jG-cCG" firstAttribute="centerX" secondItem="xmQ-3c-cqE" secondAttribute="centerX" id="wgX-23-1A0"/>
                             <constraint firstItem="KJf-jG-cCG" firstAttribute="top" secondItem="bYN-hH-iHw" secondAttribute="bottom" id="wx8-A5-LSk"/>
-                            <constraint firstItem="3E4-2b-VTs" firstAttribute="leading" secondItem="Q1v-C0-qAq" secondAttribute="leading" id="yo7-eP-X1U"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="KJf-jG-cCG" id="MIl-8F-5AP"/>
                         <outlet property="locationLabel" destination="PMV-wd-BLQ" id="sTO-dt-ZeT"/>
+                        <outlet property="mapView" destination="9Sl-rK-2bq" id="6eK-52-2Vl"/>
                         <outlet property="ownerLabel" destination="75g-HD-eCa" id="WWR-8b-aeM"/>
                         <outlet property="testLabel" destination="7KW-d4-dqn" id="0Fm-hz-hMO"/>
                         <outlet property="titleLabel" destination="bYN-hH-iHw" id="qO2-eg-vrE"/>

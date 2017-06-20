@@ -22,6 +22,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
 @end
 
 @implementation ImageDetailViewController
@@ -56,6 +58,14 @@
     self.titleLabel.text = self.image.title;
     self.ownerLabel.text = self.image.imageDetails.owner;
     self.locationLabel.text = self.image.imageDetails.location;
+    
+    //map view configuration
+    if (self.image) {
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.5f, 0.5f);
+    self.mapView.region = MKCoordinateRegionMake(self.image.coordinate, span);
+//        NSLog(@"%@",self.image.coordinate);
+    [self.mapView addAnnotation:self.image];
+    }
 }
 
 - (void)setupForImage:(FlickrImage *)image {

@@ -9,6 +9,8 @@
 #import "FlickrImage.h"
 
 @implementation FlickrImage
+@synthesize coordinate = _coordinate;
+
 
 - (instancetype)initWithFarm:(NSString *)farm andID:(NSString *)imageID andSecret:(NSString *)secret andServer:(NSString *)server andName:(NSString *)name {
     

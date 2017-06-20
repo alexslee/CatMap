@@ -70,7 +70,6 @@
             photoData.image = image;
             cell.imageView.image = image;
             cell.imageName.text = photoData.title;
-            photoData.coordinates = photoData.imageDetails.coordinates;
         } fromURL:photoData.constructedURL];
     }
     else {
@@ -95,6 +94,7 @@
         if (image.imageDetails == nil) {
             [self.flickrManager downloadDetailsForImage:image withCompletion:^(FlickrImageDetails *details) {
                 image.imageDetails = details;
+                image.coordinate = image.imageDetails.coordinates;
                 [controller setupForImage:image];
             }];
         } else {
