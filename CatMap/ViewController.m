@@ -39,9 +39,7 @@
         [self.collectionView reloadData];
     }];
     
-//    for (FlickrImage *photo in self.photos) {
-//        NSLog(@"this photo has a URL of: %@",photo.constructedURL);
-//    }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSearch:) name:@"newSearchParam" object:nil];
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -52,6 +50,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Notification responder
+- (void)updateSearch:(NSNotification *)sender {
+    [self.flickrManager collectImagesWithCompletionHandler:^(NSMutableArray *constructedPhotos) {
+        self.photos = constructedPhotos;
+        [self.collectionView reloadData];
+    }];
+}
+
+#pragma mark - Collection View methods
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -102,23 +110,6 @@
         }
     }
 }
-
-//- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(CustomCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-//
-//    FlickrImage *photoData = [self.photos objectAtIndex:indexPath.row];
-//    if (photoData.image == nil) {
-//        [self.flickrManager downloadImageWithCompletionHandler:^(UIImage *image) {
-//            photoData.image = image;
-//            cell.imageView.image = image;
-//            cell.imageName.text = photoData.imageName;
-//            
-//        } fromURL:photoData.constructedURL];
-//    }
-//    else {
-//        cell.imageView.image = photoData.image;
-//        cell.imageName.text = photoData.imageName;
-//    }
-//}
 
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     //[self.flickrManager.downloadTask suspend];

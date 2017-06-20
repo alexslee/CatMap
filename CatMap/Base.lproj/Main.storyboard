@@ -89,7 +89,13 @@
                             <constraint firstItem="39V-b8-GzG" firstAttribute="top" secondItem="pbF-Hk-5NS" secondAttribute="bottom" constant="5" id="fZI-L4-pA3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="vc2-Yt-wEq"/>
+                    <navigationItem key="navigationItem" id="vc2-Yt-wEq">
+                        <barButtonItem key="rightBarButtonItem" title="Search" id="QVl-FG-i0t">
+                            <connections>
+                                <segue destination="e7T-N2-IF2" kind="presentation" id="nph-l8-OvQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="39V-b8-GzG" id="XJm-qw-9pj"/>
                         <outlet property="layout" destination="7e2-TD-uK2" id="buF-dS-pAO"/>
@@ -104,6 +110,48 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="972" y="37.331334332833585"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="pca-IV-y1s">
+            <objects>
+                <viewController id="e7T-N2-IF2" customClass="SearchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rHt-et-3Vi"/>
+                        <viewControllerLayoutGuide type="bottom" id="i19-Jb-sQj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TPq-Zf-V3P">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for images..." textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="cqR-F9-8dB">
+                                <rect key="frame" x="19" y="152" width="337.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8M1-Jk-mqg">
+                                <rect key="frame" x="163" y="200" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="searchButton:" destination="e7T-N2-IF2" eventType="touchUpInside" id="dcc-zg-dxW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cqR-F9-8dB" firstAttribute="centerY" secondItem="TPq-Zf-V3P" secondAttribute="centerY" multiplier="0.5" id="4Ol-Vk-vu7"/>
+                            <constraint firstItem="cqR-F9-8dB" firstAttribute="centerX" secondItem="TPq-Zf-V3P" secondAttribute="centerX" id="JzK-VY-4Y9"/>
+                            <constraint firstItem="cqR-F9-8dB" firstAttribute="width" secondItem="TPq-Zf-V3P" secondAttribute="width" multiplier="0.9" id="SLZ-D5-E3l"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBox" destination="cqR-F9-8dB" id="V2P-cZ-UjB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y7Q-fT-sKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1889" y="-661"/>
         </scene>
         <!--Detail-->
         <scene sceneID="BXD-Z5-F13">
@@ -126,8 +174,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0n-IS-vOS">
-                                <rect key="frame" x="37" y="408" width="301" height="239"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" directionalLockEnabled="YES" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0n-IS-vOS">
+                                <rect key="frame" x="37" y="408" width="301" height="259"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taken by:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3E4-2b-VTs">
                                         <rect key="frame" x="8" y="30" width="77" height="21"/>
@@ -142,19 +190,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="PMV-wd-BLQ">
-                                        <rect key="frame" x="87" y="60" width="179.5" height="19.5"/>
+                                        <rect key="frame" x="87" y="60" width="180" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="75g-HD-eCa">
-                                        <rect key="frame" x="90" y="30" width="92" height="19.5"/>
+                                        <rect key="frame" x="90" y="30" width="92" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Detail label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="7KW-d4-dqn">
-                                        <rect key="frame" x="66" y="2" width="115.5" height="19.5"/>
+                                        <rect key="frame" x="66" y="2" width="116" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -173,7 +221,7 @@
                                         </connections>
                                     </button>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9Sl-rK-2bq">
-                                        <rect key="frame" x="7" y="121" width="285" height="239"/>
+                                        <rect key="frame" x="7" y="121" width="285" height="259"/>
                                     </mapView>
                                 </subviews>
                                 <constraints>
@@ -205,7 +253,7 @@
                             <constraint firstItem="bYN-hH-iHw" firstAttribute="width" secondItem="KJf-jG-cCG" secondAttribute="width" id="1fA-ul-mG0"/>
                             <constraint firstItem="A0n-IS-vOS" firstAttribute="top" secondItem="KJf-jG-cCG" secondAttribute="bottom" constant="15" id="Buf-wW-zGk"/>
                             <constraint firstItem="bYN-hH-iHw" firstAttribute="leading" secondItem="xmQ-3c-cqE" secondAttribute="leadingMargin" constant="21" id="WyO-xK-hiK"/>
-                            <constraint firstItem="mQv-iR-6JF" firstAttribute="top" secondItem="A0n-IS-vOS" secondAttribute="bottom" constant="20" id="Zpq-rP-v0Y"/>
+                            <constraint firstItem="mQv-iR-6JF" firstAttribute="top" secondItem="A0n-IS-vOS" secondAttribute="bottom" id="Zpq-rP-v0Y"/>
                             <constraint firstItem="KJf-jG-cCG" firstAttribute="width" secondItem="xmQ-3c-cqE" secondAttribute="width" multiplier="0.8" id="b1O-5c-g1j"/>
                             <constraint firstItem="A0n-IS-vOS" firstAttribute="width" secondItem="KJf-jG-cCG" secondAttribute="width" id="eBa-s9-Iyy"/>
                             <constraint firstItem="A0n-IS-vOS" firstAttribute="centerX" secondItem="KJf-jG-cCG" secondAttribute="centerX" id="elg-IO-q8X"/>

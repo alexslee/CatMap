@@ -18,6 +18,21 @@
 
 @implementation FlickrManager
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSearchTag:) name:@"newSearchParam" object:nil];
+    }
+    return self;
+}
+
+- (void)updateSearchTag:(NSNotification *)notification {
+    NSString *val = [notification.userInfo objectForKey:@"searchFor"];
+    if (![val isEqualToString:@""]) {
+        self.tagVal = val;
+    }
+}
+
 - (void)downloadDetailsForImage:(FlickrImage *)image withCompletion:(void (^)(FlickrImageDetails*))completion {
     NSString *rawURL = [NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&format=json&photo_id=%@&nojsoncallback=1&api_key=8ec3cec8e3a44f229e001aa4105329fb&tags=cat",image.imageID];
     
