@@ -31,8 +31,12 @@
 
 @property (strong, nonatomic) UIImage *image;
 
+@property (strong, nonatomic) UIImage *bigImage;
+
 @property(nonatomic) CLLocationCoordinate2D coordinate;
 
-- (instancetype)initWithFarm:(NSString *)farm andID:(NSString *)imageID andSecret:(NSString *)secret andServer:(NSString *)server andName:(NSString *)name;
+@property (strong, nonatomic)NSString *squareURL;
+
+- (instancetype)initWithFarm:(NSString *)farm andID:(NSString *)imageID andSecret:(NSString *)secret andServer:(NSString *)server andName:(NSString *)name andSquareURL:(NSString *)sqURL;
 
 @end

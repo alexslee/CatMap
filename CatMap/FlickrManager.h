@@ -22,4 +22,6 @@
 
 - (void)collectImagesWithCompletionHandler:(void (^)(NSMutableArray *))completion;
 
+- (void)getAnImageFromURL:(NSURL *)url withCompletion:(void (^)(UIImage *))completion;
+
 @end

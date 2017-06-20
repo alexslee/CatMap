@@ -8,7 +8,7 @@
 
 #import "ImageDetailViewController.h"
 
-@interface ImageDetailViewController () <SFSafariViewControllerDelegate>
+@interface ImageDetailViewController () <SFSafariViewControllerDelegate, MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
@@ -24,6 +24,8 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
+@property (strong,nonatomic) UIImage *thumbnail;
+
 @end
 
 @implementation ImageDetailViewController
@@ -32,6 +34,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self configureView];
+    self.mapView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,7 +54,7 @@
 
 - (void)configureView;
 {
-    self.imageView.image = self.image.image;
+    self.imageView.image = self.image.bigImage;
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     self.imageView.layer.masksToBounds = YES;
     self.testLabel.text = self.image.imageDetails.views;
@@ -61,11 +64,31 @@
     
     //map view configuration
     if (self.image) {
-    MKCoordinateSpan span = MKCoordinateSpanMake(0.5f, 0.5f);
-    self.mapView.region = MKCoordinateRegionMake(self.image.coordinate, span);
+        MKCoordinateSpan span = MKCoordinateSpanMake(0.5f, 0.5f);
+        self.mapView.region = MKCoordinateRegionMake(self.image.coordinate, span);
 //        NSLog(@"%@",self.image.coordinate);
-    [self.mapView addAnnotation:self.image];
+        [self.mapView addAnnotation:self.image];
     }
+}
+
+//- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+//    MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"annotate"];
+//    if (!annotationView) {
+//        annotationView = [[MKAnnotationView alloc] initWithAnnotation:self.image reuseIdentifier:@"annotate"];
+//        //annotationView.image = self.image.image;
+//        annotationView.enabled = YES;
+//    }
+//    
+//    return annotationView;
+//}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    //[view addSubview:imageView];
+    [view.leftCalloutAccessoryView addSubview:imageView];
+    imageView.image = self.image.image;
+    CGRect frame = view.frame;
+    imageView.frame = CGRectMake(-frame.size.width/2, -frame.size.height-7, frame.size.width, frame.size.height);
 }
 
 - (void)setupForImage:(FlickrImage *)image {
@@ -81,5 +104,6 @@
 - (void)safariViewControllerDidFinish:(SFSafariViewController *)controller {
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 @end

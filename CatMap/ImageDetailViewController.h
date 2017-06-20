@@ -10,6 +10,7 @@
 #import <SafariServices/SafariServices.h>
 #import "FlickrImage.h"
 #import "FlickrImageDetails.h"
+#import "FlickrManager.h"
 @interface ImageDetailViewController : UIViewController
 
 //configure the various properties of the view

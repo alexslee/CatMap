@@ -75,7 +75,7 @@
     FlickrImage *photoData = [self.photos objectAtIndex:indexPath.row];
     if (photoData.image == nil) {
         [self.flickrManager downloadImageWithCompletionHandler:^(UIImage *image) {
-            photoData.image = image;
+            photoData.bigImage = image;
             cell.imageView.image = image;
             cell.imageName.text = photoData.title;
         } fromURL:photoData.constructedURL];
@@ -84,12 +84,21 @@
         cell.imageView.image = photoData.image;
         cell.imageName.text = photoData.title;
     }
+    
+    [self.flickrManager downloadImageWithCompletionHandler:^(UIImage *image) {
+        photoData.image = image;
+    } fromURL:photoData.squareURL];
+    
     return cell;
 }
 - (IBAction)tapToDetailedView:(UITapGestureRecognizer *)sender {
     self.point = [sender locationInView:self.collectionView];
     [self performSegueWithIdentifier:@"showImageDetail" sender:self];
     
+}
+
+- (IBAction)tapToShowAll:(UIBarButtonItem *)sender {
+    [self performSegueWithIdentifier:@"showAllSegue" sender:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -108,6 +117,17 @@
         } else {
             [controller setupForImage:image];
         }
+    } else if ([[segue identifier] isEqualToString:@"showAllSegue"]) {
+        ShowAllViewController *controller = (ShowAllViewController *)[segue destinationViewController];
+        for (FlickrImage *image in self.photos) {
+            if (image.imageDetails == nil) {
+                [self. flickrManager downloadDetailsForImage:image withCompletion:^(FlickrImageDetails *details) {
+                    image.imageDetails = details;
+                    image.coordinate = image.imageDetails.coordinates;
+                }];
+            }
+        }
+        controller.allImages = self.photos;
     }
 }
 

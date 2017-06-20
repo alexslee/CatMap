@@ -72,8 +72,8 @@
                                     <outletCollection property="gestureRecognizers" destination="uSq-5U-bA6" appends="YES" id="NoK-kV-WMS"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CatMap!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbF-Hk-5NS">
-                                <rect key="frame" x="16" y="69" width="147.5" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flickr Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbF-Hk-5NS">
+                                <rect key="frame" x="16" y="69" width="224" height="42"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -90,9 +90,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vc2-Yt-wEq">
+                        <barButtonItem key="leftBarButtonItem" title="Show All" id="chw-w5-vkX">
+                            <connections>
+                                <action selector="tapToShowAll:" destination="BYZ-38-t0r" id="J2O-an-hqY"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Search" id="QVl-FG-i0t">
                             <connections>
-                                <segue destination="e7T-N2-IF2" kind="presentation" id="nph-l8-OvQ"/>
+                                <segue destination="e7T-N2-IF2" kind="presentation" identifier="searchSegue" id="nph-l8-OvQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -100,6 +105,7 @@
                         <outlet property="collectionView" destination="39V-b8-GzG" id="XJm-qw-9pj"/>
                         <outlet property="layout" destination="7e2-TD-uK2" id="buF-dS-pAO"/>
                         <segue destination="Paq-pq-cf5" kind="show" identifier="showImageDetail" id="FWK-uk-BmQ"/>
+                        <segue destination="4wX-gQ-06D" kind="presentation" identifier="showAllSegue" id="QNA-d2-A2n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -110,6 +116,47 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="972" y="37.331334332833585"/>
+        </scene>
+        <!--Show All View Controller-->
+        <scene sceneID="1rk-i1-mI7">
+            <objects>
+                <viewController id="4wX-gQ-06D" customClass="ShowAllViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FHC-Jm-83z"/>
+                        <viewControllerLayoutGuide type="bottom" id="pSk-hg-h3t"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kyI-oq-UrS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="h6v-Zg-4I4">
+                                <rect key="frame" x="0.0" y="65" width="375" height="602"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ws5-rB-RjV">
+                                <rect key="frame" x="169" y="28" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="backToMainView:" destination="4wX-gQ-06D" eventType="touchUpInside" id="tle-Gm-4dn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h6v-Zg-4I4" firstAttribute="top" secondItem="ws5-rB-RjV" secondAttribute="bottom" constant="7" id="CAz-IX-nXa"/>
+                            <constraint firstItem="ws5-rB-RjV" firstAttribute="top" secondItem="FHC-Jm-83z" secondAttribute="bottom" constant="8" id="T4h-2H-xUl"/>
+                            <constraint firstItem="pSk-hg-h3t" firstAttribute="top" secondItem="h6v-Zg-4I4" secondAttribute="bottom" id="XGL-rL-DTH"/>
+                            <constraint firstItem="h6v-Zg-4I4" firstAttribute="leading" secondItem="kyI-oq-UrS" secondAttribute="leading" id="ads-bf-aXf"/>
+                            <constraint firstItem="ws5-rB-RjV" firstAttribute="centerX" secondItem="kyI-oq-UrS" secondAttribute="centerX" id="h8I-Gu-OB5"/>
+                            <constraint firstAttribute="trailing" secondItem="h6v-Zg-4I4" secondAttribute="trailing" id="yj8-EG-zGK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="h6v-Zg-4I4" id="Gtj-6p-FdV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v2L-fj-eaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1888.8" y="-678.71064467766121"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="pca-IV-y1s">
@@ -151,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y7Q-fT-sKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1889" y="-661"/>
+            <point key="canvasLocation" x="1889" y="761"/>
         </scene>
         <!--Detail-->
         <scene sceneID="BXD-Z5-F13">
@@ -274,7 +321,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iou-Sh-4Xm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1888.8" y="36.431784107946029"/>
+            <point key="canvasLocation" x="1889" y="37"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="m9t-dF-f8L">

@@ -140,7 +140,7 @@
         NSDictionary *actualPhotos = [photos objectForKey:@"photo"];
         NSMutableArray *constructedImages = [[NSMutableArray alloc] init];
         for (NSDictionary *photo in actualPhotos) {
-            FlickrImage *tempImage = [[FlickrImage alloc] initWithFarm:[photo objectForKey:@"farm"] andID:[photo objectForKey:@"id"] andSecret:[photo objectForKey:@"secret"] andServer:[photo objectForKey:@"server"] andName:[photo objectForKey:@"title"]];
+            FlickrImage *tempImage = [[FlickrImage alloc] initWithFarm:[photo objectForKey:@"farm"] andID:[photo objectForKey:@"id"] andSecret:[photo objectForKey:@"secret"] andServer:[photo objectForKey:@"server"] andName:[photo objectForKey:@"title"] andSquareURL:[photo objectForKey:@"url_sq"]];
             [constructedImages addObject:tempImage];
 //            NSLog(@"title: %@",[photo objectForKey:@"title"]);
             
@@ -162,7 +162,7 @@
     }
     //TEST THIS QUERY LATER, maybe will make for faster loading in the main collection view?? @"extras" : @"url_sq"
     //make the queries dictionary, accounting for the 'only geotagged photos' user story
-    NSDictionary *queryBase = @{@"method" : @"flickr.photos.search", @"api_key" : @"8ec3cec8e3a44f229e001aa4105329fb", @"has_geo" : @"1", @"tags" : self.tagVal, @"format" : @"json", @"nojsoncallback" : @"1"};
+    NSDictionary *queryBase = @{@"method" : @"flickr.photos.search", @"api_key" : @"8ec3cec8e3a44f229e001aa4105329fb", @"has_geo" : @"1", @"tags" : self.tagVal, @"format" : @"json", @"nojsoncallback" : @"1",@"extras" : @"url_sq"};
     
     NSMutableArray *finalQueries = [[NSMutableArray alloc] init];
     
@@ -179,6 +179,29 @@
 
     self.url = components.URL;
     return components.URL;
+}
+
+- (void)getAnImageFromURL:(NSURL *)url withCompletion:(void (^)(UIImage *))completion {
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    
+    NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithURL:url completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if (error) {
+            NSLog(@"error: %@", error.localizedDescription);
+        }
+        
+        NSData *data = [NSData dataWithContentsOfURL:location];
+        UIImage *image = [UIImage imageWithData:data];
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            completion(image);
+        }];
+        
+    }];
+    [downloadTask resume];
+
 }
 
 @end

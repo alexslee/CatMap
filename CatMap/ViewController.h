@@ -10,6 +10,7 @@
 #import "FlickrManager.h"
 #import "CustomCollectionViewCell.h"
 #import "ImageDetailViewController.h"
+#import "ShowAllViewController.h"
 @interface ViewController : UIViewController
 
 

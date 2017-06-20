@@ -19,6 +19,7 @@
 		43789CCC1EF86B7D001B5BB7 /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43789CCB1EF86B7D001B5BB7 /* ImageDetailViewController.m */; };
 		43789CCF1EF8731A001B5BB7 /* FlickrImageDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 43789CCE1EF8731A001B5BB7 /* FlickrImageDetails.m */; };
 		439E0C8E1EF99ADC00E1220B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 439E0C8D1EF99ADC00E1220B /* SearchViewController.m */; };
+		439E0C941EF9A78500E1220B /* ShowAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 439E0C931EF9A78500E1220B /* ShowAllViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		43789CCE1EF8731A001B5BB7 /* FlickrImageDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrImageDetails.m; sourceTree = "<group>"; };
 		439E0C8C1EF99ADC00E1220B /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		439E0C8D1EF99ADC00E1220B /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		439E0C921EF9A78500E1220B /* ShowAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowAllViewController.h; sourceTree = "<group>"; };
+		439E0C931EF9A78500E1220B /* ShowAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowAllViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,12 +89,14 @@
 				43789CC21EF85684001B5BB7 /* FlickrManager.m */,
 				43789CCD1EF8731A001B5BB7 /* FlickrImageDetails.h */,
 				43789CCE1EF8731A001B5BB7 /* FlickrImageDetails.m */,
-				439E0C8C1EF99ADC00E1220B /* SearchViewController.h */,
-				439E0C8D1EF99ADC00E1220B /* SearchViewController.m */,
-				43789CB01EF85649001B5BB7 /* ViewController.h */,
-				43789CB11EF85649001B5BB7 /* ViewController.m */,
 				43789CCA1EF86B7D001B5BB7 /* ImageDetailViewController.h */,
 				43789CCB1EF86B7D001B5BB7 /* ImageDetailViewController.m */,
+				439E0C8C1EF99ADC00E1220B /* SearchViewController.h */,
+				439E0C8D1EF99ADC00E1220B /* SearchViewController.m */,
+				439E0C921EF9A78500E1220B /* ShowAllViewController.h */,
+				439E0C931EF9A78500E1220B /* ShowAllViewController.m */,
+				43789CB01EF85649001B5BB7 /* ViewController.h */,
+				43789CB11EF85649001B5BB7 /* ViewController.m */,
 				43789CB31EF85649001B5BB7 /* Main.storyboard */,
 				43789CB61EF85649001B5BB7 /* Assets.xcassets */,
 				43789CB81EF85649001B5BB7 /* LaunchScreen.storyboard */,
@@ -181,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43789CC31EF85684001B5BB7 /* FlickrManager.m in Sources */,
+				439E0C941EF9A78500E1220B /* ShowAllViewController.m in Sources */,
 				43789CB21EF85649001B5BB7 /* ViewController.m in Sources */,
 				43789CAF1EF85649001B5BB7 /* AppDelegate.m in Sources */,
 				43789CCF1EF8731A001B5BB7 /* FlickrImageDetails.m in Sources */,

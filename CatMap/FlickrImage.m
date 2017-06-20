@@ -12,7 +12,7 @@
 @synthesize coordinate = _coordinate;
 
 
-- (instancetype)initWithFarm:(NSString *)farm andID:(NSString *)imageID andSecret:(NSString *)secret andServer:(NSString *)server andName:(NSString *)name {
+- (instancetype)initWithFarm:(NSString *)farm andID:(NSString *)imageID andSecret:(NSString *)secret andServer:(NSString *)server andName:(NSString *)name andSquareURL:(NSString *)sqURL {
     
     self = [super init];
     
@@ -29,6 +29,8 @@
         
         _title = _imageName;
         
+        _squareURL = sqURL;
+        _bigImage = nil;
         _image = nil;
     }
     
