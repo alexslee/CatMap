@@ -49,7 +49,14 @@
         NSString *username = [owner objectForKey:@"username"];
         
         NSString *views = [photo objectForKey:@"views"];
-        FlickrImageDetails *imageInfo = [[FlickrImageDetails alloc] initWithURL:[oneURL[0] objectForKey:@"_content"] andViews:views andOwner:username];
+        
+        NSDictionary *locationDict = [photo objectForKey:@"location"];
+        
+        NSString *country = [[locationDict objectForKey:@"country"] objectForKey:@"_content"];
+        
+        NSString *location = [[[locationDict objectForKey:@"region"] objectForKey:@"_content"] stringByAppendingString:[NSString stringWithFormat:@", %@",country]];
+        
+        FlickrImageDetails *imageInfo = [[FlickrImageDetails alloc] initWithURL:[oneURL[0] objectForKey:@"_content"] andViews:views andOwner:username andLocation:location];
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             completion(imageInfo);

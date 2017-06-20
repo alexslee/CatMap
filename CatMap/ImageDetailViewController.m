@@ -20,6 +20,8 @@
 
 @property (strong, nonatomic) FlickrImage *image;
 
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+
 @end
 
 @implementation ImageDetailViewController
@@ -53,6 +55,7 @@
     self.testLabel.text = self.image.imageDetails.views;
     self.titleLabel.text = self.image.imageName;
     self.ownerLabel.text = self.image.imageDetails.owner;
+    self.locationLabel.text = self.image.imageDetails.location;
 }
 
 - (void)setupForImage:(FlickrImage *)image {
